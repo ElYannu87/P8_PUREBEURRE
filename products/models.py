@@ -63,18 +63,16 @@ class CategoryManager(models.Manager):
             try:
                 category.save()
             except:
-                pass
-                #raise Error(
-                    #"impossible d'enregistrer la categorie {}".format(category.name))
+                raise Error(
+                    "impossible d'enregistrer la categorie {}".format(category.name))
             for sub_category in category_dict["sub-category"]:
                 sub_category = Category(
                     name=sub_category, parent_category=category)
                 try:
                     sub_category.save()
                 except:
-                    pass
-                    #raise Error(
-                        #"Impossible d'eneregistrer la sous-categorie {}".format(sub_category.name))
+                    raise Error(
+                        "Impossible d'eneregistrer la sous-categorie {}".format(sub_category.name))
 
 
 class Product(models.Model):
