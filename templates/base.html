@@ -54,7 +54,7 @@
                         <li class="nav-item"><a class="nav-link" title="Mes favoris" href="{% url 'user_favorites' %}"><i class="fas fa-carrot fa-2x"></i></a></li>
                         <li class="nav-item"><a class="nav-link" title="Me déconnecter" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-2x"></i></a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" title="Me connecter" id='link_to_login' href="#"><i class="fas fa-sign-in-alt fa-2x"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" title="Me connecter" id='link_to_login' href="{% url 'login' %}"><i class="fas fa-sign-in-alt fa-2x"></i></a></li>
                         {% endif%}
                     </ul>
                 </div>
@@ -67,10 +67,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6 text-center">
-                        <p><a href="#">Mentions légales</a></p>
+                        <p><a href="{% url 'legal_notices' %}">Mentions légales</a></p>
                     </div>
                     <div class="col-6 text-center">
-                        <p><a href="#">Contact</a></p>
+                        <p><a href="{% url 'contact' %}">Contact</a></p>
                     </div>
 
                 </div>
@@ -86,7 +86,7 @@
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
         <script>
-            const autocomplete_url = "#";
+            const autocomplete_url = "{% url 'complete' %}";
         </script>
         <script src="{% static 'search/js/autocomplete.js' %}"></script>
         {% block javascript_scripts %}

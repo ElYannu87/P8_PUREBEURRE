@@ -40,7 +40,7 @@ class Api:
                 # we make get request for each sub-category
                 HTTP_LINK = ("https://be-fr.openfoodfacts.org/cgi/search.pl?search_simple=1"
                              "&action=process&tagtype_0=categories&tag_contains_0=contains&tag_0={}"
-                             "&sort_by=unique_scans_n&page_size=200&json=1")
+                             "&sort_by=unique_scans_n&page_size=30&json=1")
                 try:
                     request = requests.get(HTTP_LINK.format(sub_category))
                     if request.status_code != 200:

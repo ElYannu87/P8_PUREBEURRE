@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'search',
     'profiles',
     'pages',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     )
+
+# variable that defines the usermodel to use by Django
+AUTH_USER_MODEL = "users.USER"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+"""
+LOGIN_URL define where Django has to redirect the user if he tries to call
+a view wich is decorated with @login_required and if the user is not
+authenticated
+"""
+
+LOGIN_URL = 'user/login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
