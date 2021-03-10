@@ -22,7 +22,7 @@ class Api:
 
     def get_categories_list_from_json(self):
         """
-        We retrieve informations wich is inside a json file
+        We retrieve informations from a json file
         """
         with open("static/json/categories.json", "r", encoding="utf8") as file:
             categories_list = json.load(file)
@@ -59,7 +59,7 @@ class Api:
 
     def retrieve_informations_from_products(self, products_list):
         """
-        retrieve informations we need about each product
+        Retrieving informations we need about each product
         """
         products_list_parsed = []
         for product in products_list:

@@ -1,3 +1,7 @@
+html * {
+    font-family: sans-serif;
+}
+
 header.masthead {
     background: url("../images/home_page.jpg");
     background-position: center;

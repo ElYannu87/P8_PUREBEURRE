@@ -16,7 +16,7 @@ class ProductParser:
     @staticmethod
     def check_if_empty_values(product):
         """
-        Check if any information of a product is missing
+        Check if any informations of a product is missing
         """
         for key, value in product.items():
             try:

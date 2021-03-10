@@ -13,7 +13,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         """
         This method is executed when we call the command and this command
-        fill the database
+        fills the database if empty
         """
         if len(Product.objects.all()) > 0:
             self.stdout.write("La base de données est déjà remplie")
