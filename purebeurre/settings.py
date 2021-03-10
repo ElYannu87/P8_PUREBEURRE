@@ -26,7 +26,7 @@ SECRET_KEY = '&nup94(qhu93j*hxl%xxw*yky(%dv-bv56-9&th_h4w^b62)ny'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get('ENV', 'development') == 'production' else True
 
-ALLOWED_HOSTS = ['purebeurre.herokuapp.com']
+ALLOWED_HOSTS = ['purebeurreweb.herokuapp.com']
 
 
 # Application definition
