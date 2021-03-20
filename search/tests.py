@@ -1,3 +1,4 @@
+
 from django.test import TestCase, Client
 from products.models import Product, Category
 

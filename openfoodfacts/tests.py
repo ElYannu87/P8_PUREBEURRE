@@ -30,8 +30,8 @@ class TestCommand(TestCase):
 
     # TODO Comprendre comment mocker les méthodes dans ce test (demander à Thierry)
 
-    @u.patch('openfoodfact.management.commands.fill_database.Product')
-    @u.patch('openfoodfact.management.commands.fill_database.Product')
+    @u.patch('openfoodfacts.management.commands.fill_database.Product')
+    @u.patch('openfoodfacts.management.commands.fill_database.Product')
     def test_command_fill_datatabase_output(self, CategoryMock, ProductMock):
 
         CategoryMock.objects.fill_categories.return_value = True
@@ -81,7 +81,7 @@ class TestApi(TestCase):
         mock_load.return_value = mock_load.return_value = list_json
         self.assertEqual(self.api.get_categories_list_from_json(), list_json)
 
-    @u.patch('openfoodfact.api.Api.retrieve_informations_from_products')
+    @u.patch('openfoodfacts.api.Api.retrieve_informations_from_products')
     @u.patch('requests.Response')
     @u.patch('requests.get')
     @u.patch('builtins.open')
