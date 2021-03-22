@@ -19,7 +19,7 @@ def complete(request):
 
 def search_products(request):
     """
-    This view search product names that match with a specific term
+    This view searches product names that match with a specific term
     """
     try:
         searched_term = request.GET["p"].strip()

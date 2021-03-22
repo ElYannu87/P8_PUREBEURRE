@@ -54,7 +54,7 @@ class CategoryManager(models.Manager):
 
     def fill_categories(self):
         """
-        This method fill categories into database
+        This method fills the categories into database
         """
         with open("static/json/categories.json", "r", encoding="utf8") as file:
             categories_list = json.load(file)
@@ -77,7 +77,7 @@ class CategoryManager(models.Manager):
 
 class Product(models.Model):
     """
-    Product model : contains informations about product such as barcode or product name...
+    Product model : contains informations about the products such as barcode or product name...
     """
     barcode = models.CharField(max_length=20, primary_key=True)
     product_name = models.CharField(max_length=80)
@@ -96,7 +96,7 @@ class Product(models.Model):
 
 class Category(models.Model):
     """
-    Category model : contains informations about category such as its name
+    Category model : contains informations about the category such as its name
     """
     name = models.CharField(max_length=50)
     parent_category = models.ForeignKey(

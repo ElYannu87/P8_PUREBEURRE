@@ -12,6 +12,7 @@ header.masthead {
 
 .container {
     position: relative;
+    background-color: goldenrod;
 }
 
 .welcome {

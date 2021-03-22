@@ -7,7 +7,7 @@ from . import productparser
 
 class Api:
     """
-    This class handle interactions with openfoodfacts's API
+    This class handles the interactions with the openfoodfacts API
     """
     KEYS = [
         "_id", "nutrition_grades",
@@ -59,7 +59,7 @@ class Api:
 
     def retrieve_informations_from_products(self, products_list):
         """
-        Retrieving informations we need about each product
+        Retrieving the  informations we need about each product
         """
         products_list_parsed = []
         for product in products_list:

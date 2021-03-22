@@ -13,7 +13,7 @@ from products.models import Product
 @login_required(login_url='login')
 def user_favorites(request):
     """
-    This view allows user to see favorites linked with his account
+    Allows a user to see their favorites
     """
     user = request.user
     user_favorites_set = Favorite.objects.get_favorites_from_user(user)
@@ -22,7 +22,7 @@ def user_favorites(request):
 @login_required(login_url='login')
 def add_favorite(request, product_id, substitute_id):
     """
-    This view allow a specific user to save a favorite into database
+    Allows a user to save their favorites and to save them into the database
     """
     user = request.user
     try:

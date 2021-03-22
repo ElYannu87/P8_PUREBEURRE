@@ -7,11 +7,11 @@ from django.db import models
 
 class FavoriteManager(models.Manager):
     """
-        This class is the manager of favorite model
+        This class is the manager of the favorite model
     """
 
     def get_favorites_from_user(self, user):
         """
-        This method returns favorite of a particular user
+        This method returns favorite of a user
         """
         return self.filter(user=user)

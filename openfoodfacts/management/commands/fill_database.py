@@ -6,7 +6,7 @@ from products.models import Category, Product
 
 class Command(BaseCommand):
     """
-    This class contains custom commands
+    This class contains custom commands to fill the database with the help of manage.py
     """
     help = "command wich fills the database"
 

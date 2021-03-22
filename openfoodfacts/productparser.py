@@ -1,6 +1,6 @@
 class ProductParser:
     """
-    This class contains methods that will analyse products that API has returned
+    This class contains methods that analyse the products that the API has returned
     """
 
     @staticmethod
