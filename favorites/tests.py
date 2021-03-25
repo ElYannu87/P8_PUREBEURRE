@@ -37,4 +37,4 @@ class TestFavorites(TestCase):
         self.yannu = User.objects.create_user('Yannu', 'yannu@test.com', '1111')
         Favorite.objects.create(user=self.yannu, product=self.produit1, substitute=self.produit2)
         fav_of_yannu = Favorite.objects.get_favorites_from_user(self.yannu)
-        self.assertQuerysetEqual(fav_of_yannu, set(["Lait1 remplacé par Lait2"]),ordered=False, transform=str)
+        self.assertQuerysetEqual((fav_of_yannu[0].product.product_name, fav_of_yannu[0].substitute.product_name), ("Lait1", "Lait2"),ordered=False, transform=str)
