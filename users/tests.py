@@ -67,7 +67,8 @@ class UsersViewTest(TestCase):
     def test_login_view_post_request_when_user_exists(self):
         response = self.client.post(
             '/user/register/',
-            {"username": 'Michello', "email": "test@test.com", "password": '1234'})
+            {"username": 'Michello', "email": "test@test.com",
+             "password": '1234'})
         self.assertEqual(response.request["REQUEST_METHOD"], "POST")
         self.assertIsInstance(response.context["form"], SignUpForm)
         self.assertEqual(response.context['user_exists'], True)
@@ -75,14 +76,16 @@ class UsersViewTest(TestCase):
 
     def test_login_view_post_request_log_new_user(self):
         response = self.client.post(
-            '/user/register/', {"username": 'Michel', "email": "t@test.com", "password": '1234'})
+            '/user/register/', {"username": 'Michel', "email": "t@test.com",
+                                "password": '1234'})
         self.assertEqual(response.request["REQUEST_METHOD"], "POST")
         user = auth.get_user(self.client)
         self.assertIs(user.is_authenticated, True)
 
     def test_login_view_post_request_log_new_user_redirects(self):
         response = self.client.post(
-            '/user/register/', {"username": 'Michel', "email": "t@test.com", "password": '1234'})
+            '/user/register/', {"username": 'Michel', "email": "t@test.com",
+                                "password": '1234'})
         self.assertEqual(response.status_code, 302)
 
     def test_logout_view_logout_user_from_session(self):

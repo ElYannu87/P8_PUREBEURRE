@@ -6,6 +6,8 @@ from django.contrib.auth import login as log, authenticate, logout as out
 from django.contrib import messages
 
 # Create your views here.
+
+
 def sign_up(request):
     """
     This view render sign_up form and allows user to create an account
@@ -20,7 +22,8 @@ def sign_up(request):
                     form.cleaned_data['email'],
                     form.cleaned_data['password'])
             except IntegrityError:
-                return render(request, 'users/register.html', {"form": form, "user_exists": True})
+                return render(request, 'users/register.html',
+                              {"form": form, "user_exists": True})
 
             log(request, user)
             messages.add_message(request, messages.INFO,
@@ -29,7 +32,8 @@ def sign_up(request):
 
     else:  # if request method is "get"
         form = SignUpForm()
-    return render(request, 'users/register.html', {"form": form, "user_exists": False})
+    return render(request, 'users/register.html',
+                  {"form": form, "user_exists": False})
 
 
 def login(request):
@@ -41,7 +45,8 @@ def login(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             user = authenticate(
-                username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password'])
             if user is not None:
                 log(request, user)
                 messages.add_message(request, messages.INFO,
@@ -53,7 +58,8 @@ def login(request):
                               {"form": form, 'user_exists': user_exists})
     else:
         form = LoginForm()
-    return render(request, 'users/login.html', {"form": form, 'user_exists': True})
+    return render(request, 'users/login.html',
+                  {"form": form, 'user_exists': True})
 
 
 def logout(request):

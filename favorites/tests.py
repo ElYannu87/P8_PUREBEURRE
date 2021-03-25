@@ -13,7 +13,7 @@ from django.contrib.auth import logout
 class TestFavorites(TestCase):
     def test_favorite_match(self):
         "test to check if productname is correct"
-        self.cat = Category.objects.create(name="Lait", parent_category=None)
+        self.category = Category.objects.create(name="Lait", parent_category=None)
         self.produit1 = Product.objects.create(barcode="1234",
                                          product_name="Lait1",
                                          brand="Lactel",
@@ -22,7 +22,8 @@ class TestFavorites(TestCase):
                                          image_nutrition_url="www.nut-image.com",
                                          nutrition_grade="B",
                                          nutrition_score=5,
-                                         category=self.cat)
+                                         category=self.category
+                                )
         self.produit2 = Product.objects.create(barcode="1235",
                                          product_name="Lait2",
                                          brand="Gandia",
@@ -31,8 +32,9 @@ class TestFavorites(TestCase):
                                          image_nutrition_url="www.nut-image.com",
                                          nutrition_grade="A",
                                          nutrition_score=6,
-                                         category=self.cat)
+                                         category=self.category
+                                )
         self.yannu = User.objects.create_user('Yannu', 'yannu@test.com', '1111')
         Favorite.objects.create(user=self.yannu, product=self.produit1, substitute=self.produit2)
         fav_of_yannu = Favorite.objects.get_favorites_from_user(self.yannu)
-        self.assertQuerysetEqual(fav_of_yannu,set(["Lait1 remplacé par Lait2"]),ordered=False, transform=str)
+        self.assertQuerysetEqual(fav_of_yannu, set(["Lait1 remplacé par Lait2"]),ordered=False, transform=str)

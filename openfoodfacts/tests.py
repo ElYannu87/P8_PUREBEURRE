@@ -28,8 +28,6 @@ class TestCommand(TestCase):
         """
         pass
 
-    # TODO Comprendre comment mocker les méthodes dans ce test (demander à Thierry)
-
     @u.patch('openfoodfacts.management.commands.fill_database.Product')
     @u.patch('openfoodfacts.management.commands.fill_database.Product')
     def test_command_fill_datatabase_output(self, CategoryMock, ProductMock):
@@ -153,7 +151,8 @@ class TestApi(TestCase):
                    "image_nutrition_url": "www.test-nutrition-url"
                    }]
         self.assertEqual(
-            self.api.retrieve_informations_from_products(products_list), parsed)
+            self.api.retrieve_informations_from_products(products_list),
+            parsed)
 
 
 """

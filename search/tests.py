@@ -21,7 +21,7 @@ class SearchViewTest(TestCase):
         This function is executed each time a new test function is executed
         """
         self.client = Client()
-        self.cat = Category.objects.create(
+        self.category = Category.objects.create(
             name="Pâtes à tartiner", parent_category=None)
         Product.objects.create(barcode="1234",
                                product_name="Chocolat au lait",
@@ -31,7 +31,7 @@ class SearchViewTest(TestCase):
                                image_nutrition_url="www.nut-image.com",
                                nutrition_grade="C",
                                nutrition_score=12,
-                               category=self.cat)
+                               category=self.category)
         Product.objects.create(barcode="12345",
                                product_name="Choconot",
                                brand="trista",
@@ -40,7 +40,7 @@ class SearchViewTest(TestCase):
                                image_nutrition_url="www.nut-image.com",
                                nutrition_grade="D",
                                nutrition_score=15,
-                               category=self.cat)
+                               category=self.category)
         Product.objects.create(barcode="123456",
                                product_name="pure beurre",
                                brand="trista",
@@ -49,7 +49,7 @@ class SearchViewTest(TestCase):
                                image_nutrition_url="www.nut-image.com",
                                nutrition_grade="D",
                                nutrition_score=17,
-                               category=self.cat)
+                               category=self.category)
 
     def test_search_products_returns_a_list_of_products(self):
         response = self.client.get('/search/?p=cho')

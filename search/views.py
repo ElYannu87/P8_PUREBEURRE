@@ -28,7 +28,8 @@ def search_products(request):
     if searched_term == "":
         return redirect('/')
     products_possible = Product.objects.get_products_by_term(searched_term)[:9]
-    return render(request, 'search/products_searched.html', {"products": products_possible})
+    return render(request, 'search/products_searched.html',
+                  {"products": products_possible})
 
 
 def search_products_post(request):
@@ -48,7 +49,8 @@ def search_products_post(request):
 
 def substitutes_products(request, product_id):
     """
-    This view search potential substitutes of a product and renders this list of substitutes
+    This view search potential substitutes of a product and
+    renders this list of substitutes
     """
     product = get_object_or_404(Product, barcode=product_id)
     set_of_substitutes = product.category.product_set.filter(

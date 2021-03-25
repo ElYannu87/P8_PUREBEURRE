@@ -10,6 +10,8 @@ from products.models import Product
 # Create your views here.
 
 # user has to be logged if he want to see favorites
+
+
 @login_required(login_url='login')
 def user_favorites(request):
     """
@@ -17,7 +19,9 @@ def user_favorites(request):
     """
     user = request.user
     user_favorites_set = Favorite.objects.get_favorites_from_user(user)
-    return render(request, "favorites/favorites.html", {"favorites": user_favorites_set})
+    return render(request, "favorites/favorites.html", {"favorites":
+                                                        user_favorites_set})
+
 
 @login_required(login_url='login')
 def add_favorite(request, product_id, substitute_id):

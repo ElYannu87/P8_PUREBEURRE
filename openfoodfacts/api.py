@@ -48,7 +48,8 @@ class Api:
 
                 except requests.ConnectionError:
                     print(("une erreur est survenue "
-                           "lors de l'envoi/la récupération de la requête HTTP"))
+                           "lors de l'envoi/la récupération"
+                           "de la requête HTTP"))
                     sys.exit()
                 request = request.json()["products"]
                 # we retrieve informations about products of a sub-category
