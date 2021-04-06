@@ -1,11 +1,14 @@
 from . import *
+import os
  
 
  DATABASE = {
-     'default':'django.db.backends.postgresql',
+     'default':{
+     'ENGINE': 'django.db.backends.postgresql',
      'NAME': '',
      'USER': 'postgres',
      'PASSWORD': '',
      'HOST': '',
      'PORT': '',
+     },
  }
