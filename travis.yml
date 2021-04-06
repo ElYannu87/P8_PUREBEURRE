@@ -1,19 +1,19 @@
----
 language: python
 python:
   - '3.8.2'
 
-before_script:
-  - pip install -r requirements.txt
-
+# safelist
 branches:
   only:
     - staging
 
-env: DJANGO_SETTINGS_MODULE=travis
+before_script:
+  - pip install -r requirements.txt
 
 services:
   - postgresql
+
+env: DJANGO_SETTINGS_MODULE=travis
 
 script:
   - ./manage.py test
