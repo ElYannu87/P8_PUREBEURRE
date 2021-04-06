@@ -10,7 +10,7 @@ branches:
   only:
     - staging
 
-env: DJANGO_SETTINGS_MODULE="travis"
+env: DJANGO_SETTINGS_MODULE="PureBeurre.travis"
 
 services:
   - postgresql
